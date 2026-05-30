@@ -47,51 +47,7 @@ function getAnswer() {
     }, 500);
 }
 
-function handleMotion(event) {
-    const acceleration = event.accelerationIncludingGravity;
-    const curTime = new Date().getTime();
 
-    if ((curTime - lastUpdate) > 100) {
-        const diffTime = curTime - lastUpdate;
-        lastUpdate = curTime;
-
-        x = acceleration.x;
-        y = acceleration.y;
-        z = acceleration.z;
-
-        const speed = Math.abs(x + y + z - lastX - lastY - lastZ) / diffTime * 10000;
-
-        if (speed > threshold) {
-            getAnswer();
-        }
-
-        lastX = x;
-        lastY = y;
-        lastZ = z;
-    }
-}
-
-async function requestPermission() {
-    if (typeof DeviceMotionEvent.requestPermission === 'function') {
-        try {
-            const permissionState = await DeviceMotionEvent.requestPermission();
-            if (permissionState === 'granted') {
-                window.addEventListener('devicemotion', handleMotion, true);
-                permissionBtn.classList.add('hidden');
-            } else {
-                alert("Permission denied. You can still use the button!");
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    } else {
-        // For non-iOS devices or older browsers
-        window.addEventListener('devicemotion', handleMotion, true);
-        permissionBtn.classList.add('hidden');
-    }
-}
-
-permissionBtn.addEventListener('click', requestPermission);
 shakeBtn.addEventListener('click', getAnswer);
 
 // Check if motion is supported but doesn't require permission (Chrome Android)
