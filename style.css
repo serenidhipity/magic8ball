@@ -1,0 +1,134 @@
+:root {
+    --ball-size: 320px;
+    --inner-size: 150px;
+    --bg-color: #fdf6e3; /* Creamy background often seen in these designs */
+    --text-color: #333;
+    --ball-color: #1a1a1a;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.title {
+    font-family: "Bitcount Grid Single", system-ui;
+    font-size: 4rem;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    text-transform: none;
+}
+
+.ball {
+    width: var(--ball-size);
+    height: var(--ball-size);
+    background: radial-gradient(circle at 30% 30%, #333, #000);
+    border-radius: 50%;
+    margin: 0 auto 60px;
+    position: relative;
+    box-shadow: 
+        0 30px 60px rgba(0,0,0,0.4),
+        inset 0 -10px 20px rgba(0,0,0,0.6),
+        inset 0 10px 20px rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.outer-ring {
+    width: var(--inner-size);
+    height: var(--inner-size);
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.inner-window {
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.answer {
+    font-family: 'Unica One', cursive;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: normal;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+    transition: opacity 0.3s;
+}
+
+.ball.shaking {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+    10%, 90% { transform: translate3d(-4px, 0, 0); }
+    20%, 80% { transform: translate3d(8px, 0, 0); }
+    30%, 50%, 70% { transform: translate3d(-12px, 0, 0); }
+    40%, 60% { transform: translate3d(12px, 0, 0); }
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.btn {
+    font-family: "Bitcount Grid Single", system-ui;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    border: 2px solid #000;
+    border-radius: 50px;
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: fit-content;
+}
+
+.btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.hidden {
+    display: none;
+}
