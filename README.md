@@ -1,6 +1,7 @@
 # ask the ball 🎱
 
 https://askthemagic8ball.netlify.app/
+
 A minimalist, interactive Magic 8-Ball web application designed with a focus on clean aesthetics and expressive typography.
 
 ## Features
