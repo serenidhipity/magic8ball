@@ -16,10 +16,5 @@ A minimalist, interactive Magic 8-Ball web application designed with a focus on 
 - **Frontend:** Vanilla HTML5, CSS3, and JavaScript.
 - **Fonts:** Google Fonts API.
 
-## How to Use
-1. Clone the repository.
-2. Open `index.html` in your browser.
-3. Click "Shake the Ball" and wait for your answer.
-
 ## License
 MIT
